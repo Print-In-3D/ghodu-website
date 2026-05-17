@@ -1,0 +1,297 @@
+/* ══════════════════════════════════════════
+   PREMIUM ABOUT PAGE
+══════════════════════════════════════════ */
+.about-page-premium {
+    background: var(--color-bg-main);
+    padding-bottom: 120px;
+}
+
+/* ── About Hero ── */
+.about-hero {
+    padding: 140px 0 80px;
+    background: var(--color-bg-dark);
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.about-title-main {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+}
+
+.about-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.about-hero-glow {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Manifesto ── */
+.about-manifesto {
+    margin-top: -80px; /* Stronger pull-up */
+    position: relative;
+    z-index: 10;
+}
+
+.manifesto-box {
+    background: #FFFFFF;
+    padding: 60px 40px; /* More compact from 80 */
+    border-radius: 40px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.manifesto-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.manifesto-text {
+    font-size: 1.15rem; /* Better readability, less stretch */
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── Why Choose Us ── */
+.about-why-us {
+    padding: 80px 0; /* Reduced from 120 */
+}
+
+.why-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.why-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.why-icon-wrap {
+    width: 64px;
+    height: 64px;
+    background: var(--color-bg-secondary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
+}
+
+.why-card:hover .why-icon-wrap {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    transform: translateY(-5px);
+}
+
+.why-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* ── Process Visual ── */
+.about-process-visual {
+    padding: 80px 0; /* Standardized to 80 */
+    background: var(--color-bg-secondary);
+}
+
+.process-visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.process-steps-premium {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.p-step {
+    display: flex;
+    gap: 24px;
+}
+
+.p-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    opacity: 0.3;
+}
+
+.p-content h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.p-content p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.visual-box {
+    background: var(--color-bg-white);
+    padding: 60px;
+    border-radius: 40px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+}
+
+.visual-icon-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+    color: var(--color-primary);
+}
+
+.visual-box p {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+}
+
+/* ── CTA ── */
+.about-cta {
+    padding: 60px 0 0; /* Reduced from 120 */
+}
+
+.cta-box-premium {
+    background: var(--color-bg-dark);
+    padding: 80px;
+    border-radius: 40px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.cta-box-premium h2 {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.cta-box-premium p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 40px;
+}
+
+.cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.btn-about-primary {
+    padding: 16px 36px;
+    background: #FFFFFF;
+    color: #000000;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    text-decoration: none;
+    transition: all var(--t-base) var(--ease-spring);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-about-primary:hover {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-about-secondary {
+    padding: 16px 36px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #FFFFFF;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--t-base) var(--ease-out);
+}
+
+.btn-about-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .about-title-main { font-size: 3.5rem; }
+    .why-grid-premium { grid-template-columns: repeat(2, 1fr); }
+    .process-visual-grid { grid-template-columns: 1fr; gap: 60px; }
+    .manifesto-box { padding: 40px; }
+    .manifesto-text { font-size: 1.1rem; }
+}
+
+@media (max-width: 600px) {
+    .about-hero { padding: 140px 0 80px; }
+    .about-title-main { font-size: 2.5rem; }
+    .why-grid-premium { grid-template-columns: 1fr; }
+    .cta-box-premium { padding: 40px 20px; }
+    .cta-btns { flex-direction: column; }
+    .btn-about-primary, .btn-about-secondary { width: 100%; justify-content: center; }
+    .cta-box-premium h2 { font-size: 2rem; }
+}

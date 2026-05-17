@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+/* ══════════════════════════════════════════
+   PREMIUM DESIGN SYSTEM — Print-IN 3D
+   Apple × Nothing × Modern Startup
+══════════════════════════════════════════ */
+:root {
+    /* ── Core Palette (Premium Blue Rebranding) ── */
+    --color-bg-main: #FFFFFF;
+    --color-bg-secondary: #F1F5F9;
+    --color-bg-white: #FFFFFF;
+    --color-bg-dark: #0F172A;
+    --color-bg-dark-2: #1E293B;
+    --color-bg-dark-3: #334155;
+
+    /* ── Brand Accent (Logo Blue) ── */
+    --color-primary: #2563EB;
+    --color-primary-hover: #1D4ED8;
+    --color-primary-light: rgba(37, 99, 235, 0.08);
+    --color-primary-glow: rgba(37, 99, 235, 0.3);
+
+    /* ── Text (Slate Optimization) ── */
+    --color-text-main: #0F172A;
+    --color-text-secondary: #475569;
+    --color-text-muted: #94A3B8;
+    --color-text-inverse: #FFFFFF;
+    --color-text-dim: rgba(255, 255, 255, 0.85);
+
+    /* ── Borders / Glass ── */
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-border-dark: rgba(255, 255, 255, 0.08);
+    --color-glass-bg: rgba(255, 255, 255, 0.72);
+    --color-glass-bg-dark: rgba(10, 10, 10, 0.85);
+
+    /* ── Gradients ── */
+    --gradient-primary: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+    --gradient-dark: linear-gradient(160deg, #0F172A 0%, #1E293B 100%);
+    --gradient-subtle: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+    --gradient-text: linear-gradient(135deg, #2563EB, #60A5FA);
+
+    /* ── Typography ── */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+
+    /* ── Spacing (Fluid & Precise) ── */
+    --container-width: 1440px;
+    --section-gap: clamp(60px, 10vw, 120px);
+    --content-gap: clamp(24px, 4vw, 48px);
+    --grid-gap: clamp(16px, 3vw, 32px);
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+
+    /* ── Typography (Premium Fluid) ── */
+    --font-size-h1: clamp(2.5rem, 8vw, 5rem);
+    --font-size-h2: clamp(2rem, 5vw, 3.5rem);
+    --font-size-h3: clamp(1.5rem, 3vw, 2.25rem);
+    --font-size-body: clamp(0.95rem, 0.4vw + 0.7rem, 1.1rem);
+    --font-size-sm: clamp(0.8rem, 0.2vw + 0.7rem, 0.9rem);
+    --font-size-xs: clamp(0.7rem, 0.15vw + 0.6rem, 0.8rem);
+
+    /* ── Radii (Modern Geometric) ── */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 36px;
+    --radius-full: 999px;
+
+    /* ── Shadows (Multi-layered Depth) ── */
+    --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 12px 32px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 24px 64px rgba(15, 23, 42, 0.12);
+    --shadow-xl: 0 48px 128px rgba(15, 23, 42, 0.16);
+    --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.2);
+    --shadow-btn: 0 10px 20px -5px rgba(37, 99, 235, 0.25);
+    --shadow-btn-hover: 0 15px 30px -5px rgba(37, 99, 235, 0.35);
+
+    /* ── Transitions (Spring & Natural) ── */
+    --ease-spring: cubic-bezier(0.3, 1.5, 0.5, 1);
+    --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --t-fast: 0.15s;
+    --t-base: 0.3s;
+    --t-slow: 0.5s;
+
+    /* ── Production Z-Index Map ── */
+    --z-support: 9999;
+    --z-modal: 9000;
+    --z-cart: 8000;
+    --z-navbar: 7000;
+    --z-overlay: 6000;
+}
+
+/* ──────────────────────────────────────────
+   BASE RESET & ACCESSIBILITY
+────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+    background: var(--color-primary);
+    color: #FFFFFF;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid var(--color-bg-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-text-main);
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    /* Critical for vertical centering */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--t-base) var(--ease-out);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
+/* ──────────────────────────────────────────
+   ALIGNMENT UTILITIES
+   ────────────────────────────────────────── */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grid-center {
+    display: grid;
+    place-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* ──────────────────────────────────────────
+   COMMON LAYOUTS
+   ────────────────────────────────────────── */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.section-premium {
+    padding: var(--section-gap) 0;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .section-premium {
+        padding: 60px 0;
+    }
+}
+
+/* ──────────────────────────────────────────
+   BUTTON SYSTEM (PIXEL-PERFECT)
+   ────────────────────────────────────────── */
+.btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    /* Standardized gap */
+    padding: 16px 32px;
+    /* Balanced padding */
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    /* Bolder for premium feel */
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: all var(--t-base) var(--ease-spring);
+    position: relative;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+/* Ensure icons inside buttons are perfectly aligned */
+.btn-premium svg,
+.btn-premium .lucide {
+    display: block;
+    flex-shrink: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+    /* Perfect optical centering */
+    margin-top: 0;
+}
+
+.btn-premium span {
+    display: inline-block;
+    line-height: 1;
+    /* Optical centering: pull text up slightly */
+    transform: translateY(-1px);
+}
+
+.btn-arrow-p {
+    /* Align arrow with text baseline */
+    transform: translateY(-1px);
+    margin-left: 4px;
+}
+
+input,
+textarea {
+    line-height: normal;
+    /* Better vertical alignment for inputs */
+}
+
+input::placeholder {
+    vertical-align: middle;
+}
+
+.btn-primary-p {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-primary-p:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+.btn-secondary-p {
+    background: #FFFFFF;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary-p:hover {
+    background: var(--color-bg-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary-p:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ──────────────────────────────────────────
+   ACCESSIBILITY & UTILITIES
+   ────────────────────────────────────────── */
+[onclick],
+button,
+a {
+    touch-action: manipulation;
+    /* Improved mobile interaction */
+}
+
+/* Better Focus States */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* ──────────────────────────────────────────
+   GLASS PANEL (REFINED)
+────────────────────────────────────────── */
+/* .glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
+    transition: all var(--t-base) var(--ease-out-expo);
+} */
+
+/* ──────────────────────────────────────────
+   ANIMATIONS & REVEALS
+────────────────────────────────────────── */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure children reveal when parent is active */
+.reveal-active .reveal-hidden {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger-1 {
+    transition-delay: 0.15s;
+}
+
+.reveal-stagger-2 {
+    transition-delay: 0.3s;
+}
+
+.reveal-stagger-3 {
+    transition-delay: 0.45s;
+}
+
+/* ──────────────────────────────────────────
+   SEO & STRUCTURE
+────────────────────────────────────────── */
+.screen-reader-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Section Header Utility */
+.header-centered-p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.header-centered-p .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.header-centered-p h2 {
+    margin-bottom: 24px;
+}
+
+.header-centered-p p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}

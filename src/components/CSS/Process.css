@@ -1,0 +1,177 @@
+/* ══════════════════════════════════════════
+   PROCESS SECTION — Premium Timeline UI
+══════════════════════════════════════════ */
+.process {
+    padding: var(--section-gap) 0;
+    background: var(--color-bg-dark);
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.process::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(200, 35, 74, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.process .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    background: rgba(200, 35, 74, 0.15);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.process .heading-secondary {
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    font-weight: 800;
+    margin-bottom: var(--spacing-lg);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Center Line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-item.left { flex-direction: row-reverse; }
+
+.timeline-content {
+    width: calc(50% - 40px);
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(12px);
+    transition: all var(--t-base) ease;
+    position: relative;
+}
+.timeline-content:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.timeline-step-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    transition: all var(--t-base) ease;
+    z-index: -1;
+}
+.timeline-item.left .timeline-step-number {
+    right: auto;
+    left: 20px;
+}
+.timeline-content:hover .timeline-step-number {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+}
+
+.timeline-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+.timeline-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.timeline-node {
+    width: 52px;
+    height: 52px;
+    background: var(--color-bg-dark);
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 6px rgba(200, 35, 74, 0.1);
+    color: var(--color-primary);
+    transition: all var(--t-base) var(--ease-spring);
+    z-index: 5;
+}
+
+.timeline-content:hover ~ .timeline-node {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-glow);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+@media (max-width: 900px) {
+    .process .heading-secondary { font-size: 2.4rem; }
+    
+    .timeline-line { left: 32px; transform: none; }
+    
+    .timeline-item, .timeline-item.left {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+    
+    .timeline-node {
+        left: 32px;
+        transform: translateX(-50%);
+        top: 0;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+        margin-top: -10px; /* Align with node */
+    }
+    
+    .timeline-step-number { right: 20px !important; left: auto !important; }
+}

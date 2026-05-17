@@ -1,0 +1,244 @@
+/* ══════════════════════════════════════════
+   CINEMATIC HERO — Premium Overhaul
+   ══════════════════════════════════════════ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #050505;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.6;
+    filter: saturate(1.2) contrast(1.1);
+}
+
+/* ── Cinematic Lighting Layers ── */
+.hero-overlay-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hero-overlay-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-overlay-spotlight {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
+    z-index: 3;
+    pointer-events: none;
+    animation: spotlightPulse 8s ease-in-out infinite;
+}
+
+@keyframes spotlightPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.hero-overlay-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 10;
+    padding-top: 80px;
+}
+
+.hero-content-centered {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* ── Typography & Entrance ── */
+.hero-reveal-wrap {
+    overflow: hidden;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.hero-title-cinematic {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: 800;
+    line-height: 0.95;
+    color: #FFFFFF;
+    letter-spacing: -0.05em;
+    margin-bottom: clamp(24px, 4vw, 40px);
+    animation: slideUpReveal 1.2s var(--ease-out-expo) 0.2s both;
+}
+
+.hero-title-gradient {
+    background: linear-gradient(to right, #FFFFFF, #60A5FA, #2563EB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-desc-refined {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 620px;
+    margin: 0 auto clamp(32px, 6vw, 64px);
+    line-height: 1.6;
+    font-weight: 400;
+    animation: slideUpReveal 1.4s var(--ease-out-expo) 0.4s both;
+}
+
+@keyframes slideUpReveal {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ── CTA Actions ── */
+.hero-cta-sequence {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+    animation: fadeIn 1s var(--ease-out) 0.6s both;
+}
+
+.btn-cinematic-primary {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    padding: clamp(14px, 1.5vw, 18px) clamp(32px, 4vw, 56px);
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1rem;
+    transition: all var(--t-base) var(--ease-spring);
+    box-shadow: var(--shadow-btn);
+    line-height: 1;
+}
+
+.btn-cinematic-primary span {
+    display: inline-block;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.btn-cinematic-primary svg {
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.btn-cinematic-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.4);
+    background: var(--color-primary-hover);
+}
+
+.btn-cinematic-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #FFFFFF;
+    padding: clamp(14px, 1.5vw, 18px) clamp(32px, 4vw, 56px);
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    transition: all var(--t-base) var(--ease-out);
+    line-height: 1;
+}
+
+.btn-cinematic-secondary span {
+    display: inline-block;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.btn-cinematic-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-4px);
+}
+
+/* ── Minimal Trust Bar ── */
+.hero-trust-bar-minimal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(24px, 5vw, 48px);
+    animation: fadeIn 1.5s var(--ease-out) 1s both;
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.trust-item-mini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.trust-item-mini svg { color: var(--color-primary); }
+
+/* ── Responsive Overrides ── */
+@media (max-width: 1024px) {
+    .hero { height: 90vh; min-height: 600px; }
+}
+
+@media (max-width: 768px) {
+    .hero { height: 85vh; min-height: 580px; }
+    .hero-container { padding-top: 60px; }
+    .hero-trust-bar-minimal { flex-direction: column; gap: 16px; border-top: none; }
+    .hero-cta-sequence { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto 40px; gap: 12px; }
+    .btn-cinematic-primary, .btn-cinematic-secondary { width: 100%; padding: 16px 32px; }
+}
+
+@media (max-width: 480px) {
+    .hero { height: 80vh; min-height: 500px; }
+    .hero-container { padding-top: 40px; }
+    .hero-desc-refined { margin-bottom: 32px; }
+}

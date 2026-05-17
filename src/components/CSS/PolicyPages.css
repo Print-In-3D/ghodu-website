@@ -1,0 +1,207 @@
+/* ══════════════════════════════════════════
+   PREMIUM POLICY PAGES (LEGAL)
+══════════════════════════════════════════ */
+.policy-page-premium {
+    background: var(--color-bg-main);
+    padding-bottom: 120px;
+}
+
+/* ── Policy Hero ── */
+.policy-hero-premium {
+    padding: 160px 0 80px;
+    background: var(--color-bg-dark);
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.policy-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.policy-title-main {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.policy-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+}
+
+.meta-dot {
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+}
+
+/* ── Policy Document ── */
+.policy-content-section {
+    margin-top: -40px;
+}
+
+.container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.policy-document {
+    background: #FFFFFF;
+    padding: 80px;
+    border-radius: 40px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.04);
+}
+
+.policy-highlight-premium {
+    background: #FFFBEB;
+    border: 1px solid #FEF3C7;
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.highlight-icon { color: #D97706; flex-shrink: 0; }
+
+.policy-highlight-premium p {
+    font-size: 0.95rem;
+    color: #92400E;
+    line-height: 1.6;
+}
+
+.policy-block {
+    margin-bottom: 60px;
+}
+
+.policy-block:last-child { margin-bottom: 0; }
+
+.block-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.block-icon { color: var(--color-primary); }
+.block-icon.success { color: #10B981; }
+.block-icon.error { color: #EF4444; }
+
+.policy-block h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text-main);
+}
+
+.policy-block p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.policy-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.policy-list li {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+.policy-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+/* ── Policy Footer ── */
+.policy-footer-cta {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.policy-footer-cta h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.policy-footer-cta p {
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+}
+
+.btn-policy-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    text-decoration: none;
+    transition: all var(--t-base) var(--ease-spring);
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-policy-whatsapp:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .policy-document { padding: 48px; border-radius: 32px; }
+    .policy-title-main { font-size: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+    .policy-hero-premium { padding: 120px 0 60px; }
+    .policy-document { padding: 40px 24px; border-radius: 24px; }
+    .policy-block h2 { font-size: 1.2rem; }
+    .policy-block p { font-size: 0.95rem; }
+    .policy-highlight-premium { padding: 20px; }
+}
