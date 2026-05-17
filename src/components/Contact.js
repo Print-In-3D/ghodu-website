@@ -143,17 +143,10 @@ const Contact = () => {
                                 <div className="form-mode-tabs">
                                     <button
                                         type="button"
-                                        className={`mode-tab ${type === 'say-hi' ? 'active' : ''}`}
-                                        onClick={() => setType('say-hi')}
-                                    >
-                                        General Inquiry
-                                    </button>
-                                    <button
-                                        type="button"
                                         className={`mode-tab ${type === 'quote' ? 'active' : ''}`}
                                         onClick={() => setType('quote')}
                                     >
-                                        New Commission
+                                        New Order
                                     </button>
                                 </div>
 

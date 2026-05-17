@@ -8,7 +8,7 @@
 export const topicsData = [
     {
         id: 1,
-        title: "Bespoke 3D Design",
+        title: "Custom 3D Design",
         category: "Creative Service",
         icon: "PencilRuler",
         desc: "Transform your raw concepts into physical reality. Our expert designers bring precision and artistry to your custom 3D visions.",

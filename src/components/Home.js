@@ -25,7 +25,7 @@ const Home = () => {
             <BestSellers />
             <Divider />
             <Products />
-            <Process />
+
             <Divider />
             <FAQ />
             <Contact />

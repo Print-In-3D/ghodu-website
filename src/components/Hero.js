@@ -76,7 +76,7 @@ const Hero = () => {
                             <ChevronRight size={18} />
                         </Link>
                         <Link to="/contact" className="btn-cinematic-secondary">
-                            <span>Custom Commission</span>
+                            <span>Order Now</span>
                         </Link>
                     </div>
 

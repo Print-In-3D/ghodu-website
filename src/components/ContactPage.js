@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { 
-    Send, 
-    MessageSquare, 
-    Mail, 
-    Phone, 
-    Clock, 
-    ShieldCheck, 
+import {
+    Send,
+    MessageSquare,
+    Mail,
+    Phone,
+    Clock,
+    ShieldCheck,
     Globe,
     CheckCircle2,
     ChevronDown,
@@ -23,7 +23,7 @@ const ContactPage = () => {
     const [type, setType] = useState('say-hi');
     const [status, setStatus] = useState(null); // 'success', 'error', 'loading'
     const [activeFaq, setActiveFaq] = useState(null);
-    
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -47,7 +47,7 @@ const ContactPage = () => {
         setStatus('loading');
 
         if (type === 'quote') {
-            const phoneNumber = "917043591952"; 
+            const phoneNumber = "917043591952";
             const text = `Hi Print-IN, I'm ${formData.name}. I'd like to place a new order. Details: ${formData.message}`;
             const encodedText = encodeURIComponent(text);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
@@ -81,13 +81,13 @@ const ContactPage = () => {
                 <div className="container">
                     <div className="hero-content-p">
                         <span className="hero-eyebrow-p">Engineering Your Vision</span>
-                        <h1 className="hero-title-p">Let's Print the <br/><span className="text-gradient-brand">Future.</span></h1>
+                        <h1 className="hero-title-p">Let's Print the <br /><span className="text-gradient-brand">Future.</span></h1>
                         <p className="hero-subtitle-p">
-                            From rapid industrial prototyping to bespoke consumer products, 
-                            our studio provides the technical expertise and manufacturing 
+                            From rapid industrial prototyping to bespoke consumer products,
+                            our studio provides the technical expertise and manufacturing
                             capacity your project deserves.
                         </p>
-                        
+
                         {/* Hero Trust Bar */}
                         <div className="hero-trust-bar-p">
                             <div className="trust-p-item">
@@ -113,10 +113,10 @@ const ContactPage = () => {
             <main className="contact-main-grid-p">
                 <div className="container">
                     <div className="page-grid-p">
-                        
+
                         {/* LEFT COLUMN: Authority & Support */}
                         <div className="column-authority reveal-hidden reveal-stagger-1">
-                            
+
                             {/* Why Choose Us Section */}
                             <div className="authority-section-p">
                                 <h3 className="column-label-p">The Print-IN Difference</h3>
@@ -164,10 +164,6 @@ const ContactPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="status-badge-p">
-                                    <div className="status-pulse-p"></div>
-                                    <span>Accepting new commissions</span>
-                                </div>
                             </div>
 
                             {/* Interactive Quick Help */}
@@ -175,8 +171,8 @@ const ContactPage = () => {
                                 <h3 className="column-label-p">Quick Support</h3>
                                 <div className="mini-faq-stack-p">
                                     {faqs.map((faq, idx) => (
-                                        <div 
-                                            key={idx} 
+                                        <div
+                                            key={idx}
                                             className={`mini-faq-item-p ${activeFaq === idx ? 'active' : ''}`}
                                             onClick={() => toggleFaq(idx)}
                                         >
@@ -201,55 +197,48 @@ const ContactPage = () => {
 
                                 <form ref={form} onSubmit={handleSubmit} className="portal-form-p">
                                     <div className="portal-type-toggle-p">
-                                        <button 
-                                            type="button" 
-                                            className={type === 'say-hi' ? 'active' : ''}
-                                            onClick={() => setType('say-hi')}
-                                        >
-                                            General Inquiry
-                                        </button>
-                                        <button 
-                                            type="button" 
+                                        <button
+                                            type="button"
                                             className={type === 'quote' ? 'active' : ''}
                                             onClick={() => setType('quote')}
                                         >
-                                            New Commission
+                                            New Order
                                         </button>
                                     </div>
 
                                     <div className="portal-field-p">
                                         <label htmlFor="name">Professional Name</label>
-                                        <input 
-                                            type="text" 
-                                            id="name" 
-                                            placeholder="e.g. John Doe" 
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            placeholder="e.g. John Doe"
                                             className="portal-input-p"
                                             value={formData.name}
                                             onChange={handleChange}
-                                            required 
+                                            required
                                         />
                                     </div>
 
                                     {type === 'say-hi' && (
                                         <div className="portal-field-p">
                                             <label htmlFor="email">Email Address</label>
-                                            <input 
-                                                type="email" 
-                                                id="email" 
-                                                placeholder="john@example.com" 
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                placeholder="john@example.com"
                                                 className="portal-input-p"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                required 
+                                                required
                                             />
                                         </div>
                                     )}
 
                                     <div className="portal-field-p">
                                         <label htmlFor="message">Requirement Details</label>
-                                        <textarea 
-                                            id="message" 
-                                            placeholder="Describe your vision, specific dimensions, material preferences, or bulk quantities..." 
+                                        <textarea
+                                            id="message"
+                                            placeholder="Describe your vision, specific dimensions, material preferences, or bulk quantities..."
                                             rows="6"
                                             className="portal-textarea-p"
                                             value={formData.message}
@@ -258,14 +247,14 @@ const ContactPage = () => {
                                         ></textarea>
                                     </div>
 
-                                    <button 
-                                        type="submit" 
+                                    <button
+                                        type="submit"
                                         className={`btn-portal-submit-p ${status === 'loading' ? 'loading' : ''}`}
                                         disabled={status === 'loading'}
                                     >
-                                        {status === 'loading' ? 'Processing...' : 
-                                         type === 'quote' ? <><MessageSquare size={18} /> <span>Initiate WhatsApp Quote</span></> : 
-                                         <><Send size={18} /> <span>Transmit Inquiry</span></>}
+                                        {status === 'loading' ? 'Processing...' :
+                                            type === 'quote' ? <><MessageSquare size={18} /> <span>Initiate WhatsApp Quote</span></> :
+                                                <><Send size={18} /> <span>Transmit Inquiry</span></>}
                                     </button>
 
                                     {status === 'success' && (

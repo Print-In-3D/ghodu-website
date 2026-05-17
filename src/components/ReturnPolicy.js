@@ -24,15 +24,8 @@ const ReturnPolicy = () => {
             <section className="policy-content-section">
                 <div className="container-narrow">
                     <div className="policy-document glass-panel reveal-hidden reveal-stagger-1">
-                        
-                        <div className="policy-highlight-premium">
-                            <AlertTriangle size={24} className="highlight-icon" />
-                            <p>
-                                <strong>Important Notice:</strong> Due to the bespoke, personalized nature of 
-                                our 3D printed products, we do not accept returns for change of mind. 
-                                Please review your order details carefully before final confirmation.
-                            </p>
-                        </div>
+
+
 
                         <div className="policy-block">
                             <div className="block-header">
@@ -79,7 +72,7 @@ const ReturnPolicy = () => {
                                 <h2>Cancellations</h2>
                             </div>
                             <p>
-                                Orders can only be cancelled within <strong>2 hours</strong> of placement. 
+                                Orders can only be cancelled within <strong>2 hours</strong> of placement.
                                 Beyond this window, material and machine allocation have already begun.
                             </p>
                         </div>
