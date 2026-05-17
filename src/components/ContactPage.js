@@ -13,6 +13,7 @@ import {
     Target,
     Sparkles
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import './CSS/Contact.css';
 
 const ContactPage = () => {
@@ -61,6 +62,20 @@ const ContactPage = () => {
 
     return (
         <div className="contact-page-premium" ref={revealRef}>
+            <Helmet>
+                <title>Contact Our 3D Printing Studio | Print-IN 3D</title>
+                <meta name="description" content="Get in touch with Print-IN 3D. Submit a custom 3D printing project inquiry, request industrial prototyping quotes, or ask about our custom gift products." />
+                <meta name="keywords" content="3d printing, contact 3d printing, custom 3d printing service, buy 3d printed gifts, print in 3d" />
+                <meta property="og:title" content="Contact Our 3D Printing Studio | Print-IN 3D" />
+                <meta property="og:description" content="Get in touch with Print-IN 3D. Submit a custom 3D printing project inquiry, request industrial prototyping quotes, or ask about our custom gift products." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://printin3d.in/contact" />
+                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Contact Our 3D Printing Studio | Print-IN 3D" />
+                <meta name="twitter:description" content="Get in touch with Print-IN 3D. Submit a custom 3D printing project inquiry, request industrial prototyping quotes, or ask about our custom gift products." />
+                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+            </Helmet>
             {/* ── CINEMATIC HERO ── */}
             <header className="contact-hero-cinematic reveal-hidden">
                 <div className="container">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
@@ -68,15 +69,17 @@ function App() {
     const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
     return (
-        <Router>
-            <ScrollToTop />
-            <CartProvider>
-                <AppContent 
-                    isCheckoutOpen={isCheckoutOpen} 
-                    setIsCheckoutOpen={setIsCheckoutOpen} 
-                />
-            </CartProvider>
-        </Router>
+        <HelmetProvider>
+            <Router>
+                <ScrollToTop />
+                <CartProvider>
+                    <AppContent 
+                        isCheckoutOpen={isCheckoutOpen} 
+                        setIsCheckoutOpen={setIsCheckoutOpen} 
+                    />
+                </CartProvider>
+            </Router>
+        </HelmetProvider>
     );
 }
 

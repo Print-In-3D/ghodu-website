@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Search, ArrowRight, Frown, ShoppingCart, ArrowLeft } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import './CSS/SearchPage.css';
 
 const SearchPage = () => {
@@ -53,6 +54,20 @@ const SearchPage = () => {
 
     return (
         <div className="search-page-premium">
+            <Helmet>
+                <title>{searchQuery ? `Search results for "${searchQuery}" | Print-IN 3D` : "Search Products | Print-IN 3D"}</title>
+                <meta name="description" content="Search for custom 3D printed keychains, home decor, desk gear, cinematic frames, and collector models from Print-IN 3D." />
+                <meta name="keywords" content="3d printing, search 3d prints, buy 3d prints online, custom 3d printing service, print in 3d" />
+                <meta property="og:title" content={searchQuery ? `Search results for "${searchQuery}" | Print-IN 3D` : "Search Products | Print-IN 3D"} />
+                <meta property="og:description" content="Search for custom 3D printed keychains, home decor, desk gear, cinematic frames, and collector models from Print-IN 3D." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://printin3d.in/search" />
+                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={searchQuery ? `Search results for "${searchQuery}" | Print-IN 3D` : "Search Products | Print-IN 3D"} />
+                <meta name="twitter:description" content="Search for custom 3D printed keychains, home decor, desk gear, cinematic frames, and collector models from Print-IN 3D." />
+                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+            </Helmet>
             <div className="container" ref={revealRef}>
                 {/* Back Navigation */}
                 <button className="search-back-btn" onClick={() => navigate(-1)}>

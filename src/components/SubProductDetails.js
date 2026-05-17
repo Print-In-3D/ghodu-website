@@ -14,7 +14,16 @@ import {
     PenTool, 
     HelpCircle
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import './CSS/SubProductDetails.css';
+
+const slugify = (text) =>
+    (text || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[&]/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
 
 const SubProductDetails = () => {
     const { topicsData, subProductsMap } = useData();
@@ -29,9 +38,18 @@ const SubProductDetails = () => {
     const [isAdded, setIsAdded] = useState(false);
 
     // Optimized Data Lookups (Stable for Refactor)
-    const topic = useMemo(() => topicsData.find(t => t.id === Number(topicId)), [topicId]);
-    const products = useMemo(() => subProductsMap[topicId] || [], [topicId]);
-    const product = useMemo(() => products.find(p => p.id === productId), [products, productId]);
+    const topic = useMemo(() => {
+        return topicsData.find(t => t.id === Number(topicId) || slugify(t.title) === topicId);
+    }, [topicsData, topicId]);
+
+    const products = useMemo(() => {
+        if (!topic) return [];
+        return subProductsMap[topic.id] || [];
+    }, [subProductsMap, topic]);
+
+    const product = useMemo(() => {
+        return products.find(p => p.id === productId || slugify(p.name) === productId);
+    }, [products, productId]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -57,6 +75,20 @@ const SubProductDetails = () => {
 
     return (
         <div className="pdp-premium">
+            <Helmet>
+                <title>{`${product.name} | Premium 3D Printed ${topic.title}`}</title>
+                <meta name="description" content={`Order the ${product.name} online from Print-IN 3D. ${product.desc} Handcrafted in India with high layer precision and durable materials.`} />
+                <meta name="keywords" content={`3d printing, ${product.name.toLowerCase()}, buy ${product.name.toLowerCase()} online, custom 3d printed ${topic.title.toLowerCase()}, 3d printed gifts, print in 3d`} />
+                <meta property="og:title" content={`${product.name} | Premium 3D Printed ${topic.title}`} />
+                <meta property="og:description" content={`Order the ${product.name} online from Print-IN 3D. ${product.desc} Handcrafted in India with high layer precision and durable materials.`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`https://printin3d.in/product/${topicId}/${productId}`} />
+                <meta property="og:image" content={product.images && product.images[0] ? product.images[0] : "https://printin3d.in/favicon.webp"} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${product.name} | Premium 3D Printed ${topic.title}`} />
+                <meta name="twitter:description" content={`Order the ${product.name} online from Print-IN 3D. ${product.desc} Handcrafted in India with high layer precision and durable materials.`} />
+                <meta name="twitter:image" content={product.images && product.images[0] ? product.images[0] : "https://printin3d.in/favicon.webp"} />
+            </Helmet>
             <div className="container" ref={revealRef}>
                 {/* Back Navigation */}
                 <button className="pdp-back-btn" onClick={() => navigate(`/product/${topicId}`)}>

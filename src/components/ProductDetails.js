@@ -16,6 +16,7 @@ import {
     Image as ImageIcon
 } from 'lucide-react';
 
+import { Helmet } from 'react-helmet-async';
 import './CSS/ProductDetails.css';
 
 const iconMap = {
@@ -27,6 +28,14 @@ const iconMap = {
     Image: ImageIcon
 };
 
+const slugify = (text) =>
+    (text || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[&]/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
 const ProductDetails = () => {
     const { topicsData, subProductsMap } = useData();
     const { topicId } = useParams();
@@ -35,8 +44,14 @@ const ProductDetails = () => {
     const [sortBy, setSortBy] = useState('featured');
 
     // Stable Data Selection
-    const topic = useMemo(() => topicsData.find(t => t.id === Number(topicId)), [topicId]);
-    const products = useMemo(() => subProductsMap[topicId] || [], [topicId]);
+    const topic = useMemo(() => {
+        return topicsData.find(t => t.id === Number(topicId) || slugify(t.title) === topicId);
+    }, [topicsData, topicId]);
+
+    const products = useMemo(() => {
+        if (!topic) return [];
+        return subProductsMap[topic.id] || [];
+    }, [subProductsMap, topic]);
 
     const sortedProducts = useMemo(() => {
         let items = [...products];
@@ -54,6 +69,20 @@ const ProductDetails = () => {
 
     return (
         <div className="product-listing-page">
+            <Helmet>
+                <title>{`${topic.title} | Premium 3D Printed Collection`}</title>
+                <meta name="description" content={`Browse our premium selection of custom 3D printed ${topic.title.toLowerCase()}. Handcrafted with high-quality materials and fine finishes. Order online with fast pan-India shipping!`} />
+                <meta name="keywords" content={`3d printing, 3d printed ${topic.title.toLowerCase()}, custom ${topic.title.toLowerCase()}, buy 3d prints india, online 3d printing service, print in 3d`} />
+                <meta property="og:title" content={`${topic.title} | Premium 3D Printed Collection`} />
+                <meta property="og:description" content={`Browse our premium selection of custom 3D printed ${topic.title.toLowerCase()}. Handcrafted with high-quality materials and fine finishes. Order online with fast pan-India shipping!`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`https://printin3d.in/product/${topicId}`} />
+                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${topic.title} | Premium 3D Printed Collection`} />
+                <meta name="twitter:description" content={`Browse our premium selection of custom 3D printed ${topic.title.toLowerCase()}. Handcrafted with high-quality materials and fine finishes. Order online with fast pan-India shipping!`} />
+                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+            </Helmet>
             <div className="container" ref={revealRef}>
                 {/* Back Link */}
                 <button className="back-link-premium" onClick={() => navigate('/')}>
