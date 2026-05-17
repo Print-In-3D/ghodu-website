@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import {
-    Send,
     MessageSquare,
     Mail,
     Phone,
@@ -20,13 +18,11 @@ import './CSS/Contact.css';
 const ContactPage = () => {
     const form = useRef();
     const revealRef = useScrollReveal();
-    const [type, setType] = useState('say-hi');
     const [status, setStatus] = useState(null); // 'success', 'error', 'loading'
     const [activeFaq, setActiveFaq] = useState(null);
 
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
         message: ''
     });
 
@@ -46,26 +42,15 @@ const ContactPage = () => {
         e.preventDefault();
         setStatus('loading');
 
-        if (type === 'quote') {
-            const phoneNumber = "917043591952";
-            const text = `Hi Print-IN, I'm ${formData.name}. I'd like to place a new order. Details: ${formData.message}`;
-            const encodedText = encodeURIComponent(text);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
-            window.open(whatsappUrl, '_blank');
-            setStatus('success');
-            setFormData({ name: '', email: '', message: '' });
-            setTimeout(() => setStatus(null), 5000);
-        } else {
-            emailjs.sendForm('service_xvvx1of', 'template_g72lmq6', form.current, 'PJWLNVamk0BXaXntd')
-                .then(() => {
-                    setStatus('success');
-                    setFormData({ name: '', email: '', message: '' });
-                    setTimeout(() => setStatus(null), 5000);
-                }, () => {
-                    setStatus('error');
-                    setTimeout(() => setStatus(null), 5000);
-                });
-        }
+        const phoneNumber = "917043591952";
+        const text = `Hi Print-IN 3D, I'm ${formData.name}.\n\nI would like to submit a project inquiry.\n\nProject Details:\n${formData.message}`;
+        const encodedText = encodeURIComponent(text);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+        window.open(whatsappUrl, '_blank');
+        
+        setStatus('success');
+        setFormData({ name: '', message: '' });
+        setTimeout(() => setStatus(null), 5000);
     };
 
     const faqs = [
@@ -192,20 +177,10 @@ const ContactPage = () => {
                             <div className="portal-form-card-p glass-panel">
                                 <div className="portal-header-p">
                                     <h2 className="portal-title-p">Inquiry Portal</h2>
-                                    <p className="portal-subtitle-p">Select your requirement and let's get started.</p>
+                                    <p className="portal-subtitle-p">Let's get started with your requirement.</p>
                                 </div>
 
                                 <form ref={form} onSubmit={handleSubmit} className="portal-form-p">
-                                    <div className="portal-type-toggle-p">
-                                        <button
-                                            type="button"
-                                            className={type === 'quote' ? 'active' : ''}
-                                            onClick={() => setType('quote')}
-                                        >
-                                            New Order
-                                        </button>
-                                    </div>
-
                                     <div className="portal-field-p">
                                         <label htmlFor="name">Professional Name</label>
                                         <input
@@ -218,21 +193,6 @@ const ContactPage = () => {
                                             required
                                         />
                                     </div>
-
-                                    {type === 'say-hi' && (
-                                        <div className="portal-field-p">
-                                            <label htmlFor="email">Email Address</label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                placeholder="john@example.com"
-                                                className="portal-input-p"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                required
-                                            />
-                                        </div>
-                                    )}
 
                                     <div className="portal-field-p">
                                         <label htmlFor="message">Requirement Details</label>
@@ -252,14 +212,14 @@ const ContactPage = () => {
                                         className={`btn-portal-submit-p ${status === 'loading' ? 'loading' : ''}`}
                                         disabled={status === 'loading'}
                                     >
-                                        {status === 'loading' ? 'Processing...' :
-                                            type === 'quote' ? <><MessageSquare size={18} /> <span>Initiate WhatsApp Quote</span></> :
-                                                <><Send size={18} /> <span>Transmit Inquiry</span></>}
+                                        {status === 'loading' ? 'Processing...' : (
+                                            <><MessageSquare size={18} /> <span>Initiate WhatsApp Quote</span></>
+                                        )}
                                     </button>
 
                                     {status === 'success' && (
                                         <div className="portal-status-msg-p success">
-                                            <CheckCircle2 size={16} /> Transmission successful. Engineering team notified.
+                                            <CheckCircle2 size={16} /> Redirection successful! Complete the quote on WhatsApp.
                                         </div>
                                     )}
                                     {status === 'error' && (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { subProductsMap, topicsData } from '../data/productsData';
+import { useData } from '../context/DataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ArrowRight, Star } from 'lucide-react';
 import './CSS/BestSellers.css';
@@ -17,6 +17,7 @@ const BESTSELLER_REFS = [
 ];
 
 const BestSellers = () => {
+    const { topicsData, subProductsMap } = useData();
     const navigate = useNavigate();
     const { addToCart } = useCart();
     const revealRef = useScrollReveal();

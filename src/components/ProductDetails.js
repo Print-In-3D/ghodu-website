@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { topicsData, subProductsMap } from '../data/productsData';
+import { useData } from '../context/DataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { 
     ArrowLeft, 
@@ -28,6 +28,7 @@ const iconMap = {
 };
 
 const ProductDetails = () => {
+    const { topicsData, subProductsMap } = useData();
     const { topicId } = useParams();
     const navigate = useNavigate();
     const revealRef = useScrollReveal();

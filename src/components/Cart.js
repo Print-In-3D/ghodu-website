@@ -4,13 +4,13 @@ import { ShoppingCart, X, Trash2, Plus, Minus, ShieldCheck, ArrowRight } from 'l
 import './CSS/Cart.css';
 
 const Cart = ({ setIsCheckoutOpen }) => {
-    const { 
-        cartItems, 
-        isCartOpen, 
-        setIsCartOpen, 
-        removeFromCart, 
-        updateQuantity, 
-        getCartTotal 
+    const {
+        cartItems,
+        isCartOpen,
+        setIsCartOpen,
+        removeFromCart,
+        updateQuantity,
+        getCartTotal
     } = useCart();
 
     const handleCheckoutClick = () => {
@@ -38,14 +38,7 @@ const Cart = ({ setIsCheckoutOpen }) => {
                             <div key={item.cartKey} className="cart-item-premium">
                                 <div className="cart-item-img-wrap">
                                     {item.image ? (
-                                        <img 
-                                            src={item.image} 
-                                            alt={item.title} 
-                                            onError={(e) => {
-                                                e.target.onerror = null;
-                                                e.target.src = 'https://via.placeholder.com/100x100?text=3D';
-                                            }}
-                                        />
+                                        <img src={item.image} alt={item.title} />
                                     ) : (
                                         <div className="cart-item-placeholder">🎁</div>
                                     )}

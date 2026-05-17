@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { ShoppingCart, Search, Menu, X } from 'lucide-react';
-import logoImage from '../logo.svg';
 import './CSS/Navbar.css';
 
 const Navbar = ({ setIsCartOpen }) => {
@@ -81,7 +80,7 @@ const Navbar = ({ setIsCartOpen }) => {
     };
 
     return (
-        <nav className={`navbar ${scrolled || isMobileMenuOpen ? 'navbar-scrolled' : ''}`}>
+        <nav className={`navbar ${(scrolled || isMobileMenuOpen || location.pathname !== '/') ? 'navbar-scrolled' : ''}`}>
             <div className="nav-inner">
                 {/* Mobile Menu Toggle */}
                 <button
@@ -94,7 +93,6 @@ const Navbar = ({ setIsCartOpen }) => {
 
                 {/* Left Logo */}
                 <Link to="/" className="logo" onClick={scrollToTop}>
-                    <img src={logoImage} alt="Print-IN 3D" className="logo-img" />
                     <span className="logo-text">Print-IN 3D</span>
                 </Link>
 

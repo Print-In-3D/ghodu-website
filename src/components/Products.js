@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { topicsData, subProductsMap } from '../data/productsData';
+import { useData } from '../context/DataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ArrowUpRight } from 'lucide-react';
 import './CSS/Products.css';
 
 const Products = () => {
+    const { topicsData, subProductsMap } = useData();
     const navigate = useNavigate();
     const revealRef = useScrollReveal();
 

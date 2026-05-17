@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import {
-    Send,
     MessageSquare,
     Mail,
     MapPin,
@@ -17,10 +15,8 @@ import './CSS/Contact.css';
 const Contact = () => {
     const form = useRef();
     const revealRef = useScrollReveal();
-    const [type, setType] = useState('say-hi');
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
         message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,24 +29,14 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        if (type === 'quote') {
-            const phoneNumber = "917043591952";
-            const text = `Hi Print-IN, I'm ${formData.name}. I'd like to place a new order. Details: ${formData.message}`;
-            const encodedText = encodeURIComponent(text);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
-            window.open(whatsappUrl, '_blank');
-            setIsSubmitting(false);
-        } else {
-            emailjs.sendForm('service_xvvx1of', 'template_g72lmq6', form.current, 'PJWLNVamk0BXaXntd')
-                .then((result) => {
-                    alert(`Thanks ${formData.name}! We've received your inquiry.`);
-                    setFormData({ name: '', email: '', message: '' });
-                    setIsSubmitting(false);
-                }, (error) => {
-                    alert('FAILED...', error);
-                    setIsSubmitting(false);
-                });
-        }
+        const phoneNumber = "917043591952";
+        const text = `Hi Print-IN 3D, I'm ${formData.name}.\n\nI would like to submit a project inquiry.\n\nProject Details:\n${formData.message}`;
+        const encodedText = encodeURIComponent(text);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+        window.open(whatsappUrl, '_blank');
+        
+        setIsSubmitting(false);
+        setFormData({ name: '', message: '' });
     };
 
     return (
@@ -140,16 +126,6 @@ const Contact = () => {
                             </div>
 
                             <form className="portal-form" ref={form} onSubmit={handleSubmit}>
-                                <div className="form-mode-tabs">
-                                    <button
-                                        type="button"
-                                        className={`mode-tab ${type === 'quote' ? 'active' : ''}`}
-                                        onClick={() => setType('quote')}
-                                    >
-                                        New Order
-                                    </button>
-                                </div>
-
                                 <div className="portal-input-group">
                                     <label htmlFor="name">Full Name</label>
                                     <div className="input-wrapper-p">
@@ -165,24 +141,6 @@ const Contact = () => {
                                         />
                                     </div>
                                 </div>
-
-                                {type === 'say-hi' && (
-                                    <div className="portal-input-group">
-                                        <label htmlFor="email">Email Address</label>
-                                        <div className="input-wrapper-p">
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                name="user_email"
-                                                placeholder="example@studio.com"
-                                                className="portal-input"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                )}
 
                                 <div className="portal-input-group">
                                     <label htmlFor="message">Project Details</label>
@@ -209,11 +167,7 @@ const Contact = () => {
                                         <span className="btn-loading-text">Processing...</span>
                                     ) : (
                                         <>
-                                            {type === 'quote' ? (
-                                                <><MessageSquare size={18} /> <span>Initiate via WhatsApp</span></>
-                                            ) : (
-                                                <><Send size={18} /> <span>Send Inquiry</span></>
-                                            )}
+                                            <MessageSquare size={18} /> <span>Send Inquiry via WhatsApp</span>
                                             <ChevronRight size={18} className="btn-arrow-p" />
                                         </>
                                     )}

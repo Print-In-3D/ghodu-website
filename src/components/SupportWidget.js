@@ -5,7 +5,7 @@ const SupportWidget = () => {
     return (
         <div className="support-widget-container">
             <a
-                href="https://wa.me/917043591952"
+                href="https://api.whatsapp.com/send?phone=917043591952&text=Hi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="support-pill-button"

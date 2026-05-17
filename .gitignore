@@ -31,3 +31,12 @@ yarn-error.log*
 
 # Project specific
 /public/sitemap.xml
+
+# Django / Python
+django_backend/venv/
+django_backend/db.sqlite3
+django_backend/media/
+**/__pycache__/
+*.pyc
+.venv/
+venv/

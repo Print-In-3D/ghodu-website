@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { subProductsMap, topicsData } from '../data/productsData';
+import { useData } from '../context/DataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Search, ArrowRight, Frown, ShoppingCart, ArrowLeft } from 'lucide-react';
 import './CSS/SearchPage.css';
 
 const SearchPage = () => {
+    const { subProductsMap, topicsData } = useData();
     const location = useLocation();
     const navigate = useNavigate();
     const revealRef = useScrollReveal();

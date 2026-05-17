@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { subProductsMap, topicsData } from '../data/productsData';
+import { useData } from '../context/DataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { 
     ArrowLeft, 
@@ -17,6 +17,7 @@ import {
 import './CSS/SubProductDetails.css';
 
 const SubProductDetails = () => {
+    const { topicsData, subProductsMap } = useData();
     const { topicId, productId } = useParams();
     const navigate = useNavigate();
     const { addToCart } = useCart();

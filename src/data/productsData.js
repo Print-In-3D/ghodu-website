@@ -60,7 +60,7 @@ export const topicsData = [
  * SUB-PRODUCTS MAP
  */
 export const subProductsMap = {
-    2: [ // Keychains
+    2: [ 
         {
             id: '2-1', name: "Signature Monogram", price: 100,
             images: ["/images/products/keychains/Alphabet/alphabets.png"],
