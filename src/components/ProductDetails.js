@@ -40,7 +40,7 @@ const ProductDetails = () => {
     const { topicsData, subProductsMap } = useData();
     const { topicId } = useParams();
     const navigate = useNavigate();
-    const revealRef = useScrollReveal();
+    const revealRef = useScrollReveal({ threshold: 0.01, rootMargin: '50px' });
     const [sortBy, setSortBy] = useState('featured');
 
     // Stable Data Selection
