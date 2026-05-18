@@ -38,8 +38,8 @@ const Footer = () => {
                             high-precision custom creations for hobbyists and engineers alike.
                         </p>
                         <div className="footer-social-links">
-                            <a href="#!" aria-label="Instagram"><Instagram /></a>
-                            <a href="#!" aria-label="Facebook"><Facebook /></a>
+                            <a href="https://www.instagram.com/printin_3dcreations?igsh=MWg5NjVyd3Btb3NjZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram /></a>
+                            <a href="https://www.facebook.com/share/1Ce3SsfvAe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook /></a>
                             <a href="#!" onClick={(e) => { e.preventDefault(); window.open('https://wa.me/917043591952', '_blank'); }} aria-label="WhatsApp"><MessageCircle /></a>
                         </div>
                     </div>

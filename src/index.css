@@ -88,7 +88,7 @@
     --t-slow: 0.5s;
 
     /* ── Production Z-Index Map ── */
-    --z-support: 9999;
+    --z-support: 7500;
     --z-modal: 9000;
     --z-cart: 8000;
     --z-navbar: 7000;
