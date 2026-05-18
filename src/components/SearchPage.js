@@ -118,7 +118,10 @@ const SearchPage = () => {
                                     <div className="result-card-info">
                                         <h3 className="result-card-title">{product.name}</h3>
                                         <div className="result-card-footer">
-                                            <div className="result-price">₹{product.price === 0 ? 'Quote' : product.price}</div>
+                                            <div className="result-price">
+                                                ₹{product.price === 0 ? 'Quote' : product.price}
+                                                <span style={{ fontSize: '0.65em', fontWeight: 'normal', opacity: 0.8, marginLeft: '4px' }}>(Inclusive of all taxes)</span>
+                                            </div>
                                             <div className="result-action"><ShoppingCart size={16} /></div>
                                         </div>
                                     </div>

@@ -80,7 +80,7 @@ const ReturnPolicy = () => {
                         <div className="policy-footer-cta">
                             <h3>Need to open a claim?</h3>
                             <p>Send clear photos of the issue to our WhatsApp team.</p>
-                            <a href="https://wa.me/917043591952" target="_blank" rel="noreferrer" className="btn-policy-whatsapp">
+                            <a href="#!" onClick={(e) => { e.preventDefault(); window.open('https://wa.me/917043591952', '_blank'); }} className="btn-policy-whatsapp">
                                 <MessageSquare size={18} /> Contact Support
                             </a>
                         </div>

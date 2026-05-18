@@ -162,7 +162,7 @@ const Navbar = ({ setIsCartOpen }) => {
                     </div>
 
                     <div className="mobile-menu-footer">
-                        <a href="https://wa.me/917043591952" target="_blank" rel="noreferrer" className="btn-premium btn-primary-p" style={{ width: '100%', justifyContent: 'center' }}>
+                        <a href="#!" onClick={(e) => { e.preventDefault(); window.open('https://wa.me/917043591952', '_blank'); }} className="btn-premium btn-primary-p" style={{ width: '100%', justifyContent: 'center' }}>
                             WhatsApp Support
                         </a>
                     </div>

@@ -40,7 +40,7 @@ const Footer = () => {
                         <div className="footer-social-links">
                             <a href="#!" aria-label="Instagram"><Instagram /></a>
                             <a href="#!" aria-label="Facebook"><Facebook /></a>
-                            <a href="https://wa.me/917043591952" target="_blank" rel="noreferrer" aria-label="WhatsApp"><MessageCircle /></a>
+                            <a href="#!" onClick={(e) => { e.preventDefault(); window.open('https://wa.me/917043591952', '_blank'); }} aria-label="WhatsApp"><MessageCircle /></a>
                         </div>
                     </div>
 

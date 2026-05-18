@@ -103,11 +103,12 @@ const BestSellers = () => {
                                     <p className="bs-card-description-premium">{item.desc}</p>
                                 </div>
                                 <div className="bs-card-bottom-premium">
-                                    <div className="bs-card-pricing-premium">
+                                    <div className="bs-card-pricing-premium" style={{ alignItems: 'baseline' }}>
                                         <span className="bs-currency">₹</span>
                                         <span className="bs-price-val">
                                             {item.price === 0 ? 'Quote' : item.price}
                                         </span>
+                                        <span style={{ fontSize: '0.65em', fontWeight: 'normal', opacity: 0.8, marginLeft: '4px' }}>(Inclusive of all taxes)</span>
                                     </div>
                                     <button
                                         className="bs-action-btn-premium"

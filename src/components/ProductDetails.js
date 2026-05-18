@@ -174,11 +174,12 @@ const ProductDetails = () => {
                                     <h3 className="listing-card-title">{product.name}</h3>
                                     <p className="listing-card-desc">{product.desc}</p>
                                     <div className="listing-card-footer">
-                                        <div className="listing-card-pricing">
+                                        <div className="listing-card-pricing" style={{ alignItems: 'baseline' }}>
                                             <span className="price-symbol">₹</span>
                                             <span className="price-value">
                                                 {product.price === 0 ? 'Quote' : product.price}
                                             </span>
+                                            <span style={{ fontSize: '0.65em', fontWeight: 'normal', opacity: 0.8, marginLeft: '4px' }}>(Inclusive of all taxes)</span>
                                         </div>
                                         <div className="listing-card-action">
                                             <ShoppingCart size={18} />

@@ -5,7 +5,11 @@ const SupportWidget = () => {
     return (
         <div className="support-widget-container">
             <a
-                href="https://wa.me/917043591952?text=Hi"
+                href="#!"
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.open('https://wa.me/917043591952?text=Hi', '_blank');
+                }}
                 rel="noopener noreferrer"
                 className="support-pill-button"
                 aria-label="Chat on WhatsApp"

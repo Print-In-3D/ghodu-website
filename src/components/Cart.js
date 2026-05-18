@@ -58,8 +58,9 @@ const Cart = ({ setIsCheckoutOpen }) => {
                                                 <Plus size={14} />
                                             </button>
                                         </div>
-                                        <div className="cart-item-price">
-                                            ₹{item.price * item.quantity}
+                                        <div className="cart-item-price" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                                            <span>₹{item.price * item.quantity}</span>
+                                            <span style={{ fontSize: '0.6em', fontWeight: 'normal', opacity: 0.8 }}>(Inclusive of all taxes)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -89,9 +90,12 @@ const Cart = ({ setIsCheckoutOpen }) => {
                             <ShieldCheck size={14} />
                             <span>Verified WhatsApp Checkout</span>
                         </div>
-                        <div className="cart-total-row">
+                        <div className="cart-total-row" style={{ alignItems: 'baseline' }}>
                             <span className="total-label">Subtotal</span>
-                            <span className="total-val">₹{getCartTotal()}</span>
+                            <div>
+                                <span className="total-val">₹{getCartTotal()}</span>
+                                <span style={{ fontSize: '0.6em', fontWeight: 'normal', opacity: 0.8, marginLeft: '4px' }}>(Incl. taxes)</span>
+                            </div>
                         </div>
                         <p className="shipping-hint">Shipping calculated at checkout</p>
                         <button className="btn-cart-checkout" onClick={handleCheckoutClick}>

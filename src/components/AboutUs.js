@@ -139,7 +139,7 @@ const AboutUs = () => {
                         <p>Explore our collection or start a custom project today.</p>
                         <div className="cta-btns">
                             <a href="/#products" className="btn-about-primary">Explore Products</a>
-                            <a href="https://wa.me/917043591952" target="_blank" rel="noreferrer" className="btn-about-secondary">
+                            <a href="#!" onClick={(e) => { e.preventDefault(); window.open('https://wa.me/917043591952', '_blank'); }} className="btn-about-secondary">
                                 <MessageSquare size={18} /> Chat with Us
                             </a>
                         </div>

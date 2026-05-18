@@ -140,9 +140,10 @@ const SubProductDetails = () => {
                         <div className="pdp-header">
                             <div className="pdp-category-label">{topic.title}</div>
                             <h1 className="pdp-title">{product.name}</h1>
-                            <div className="pdp-price-tag">
+                            <div className="pdp-price-tag" style={{ alignItems: 'baseline' }}>
                                 <span className="pdp-currency">₹</span>
                                 <span className="pdp-val">{product.price === 0 ? 'Quote Required' : product.price}</span>
+                                <span style={{ fontSize: '0.55em', fontWeight: 'normal', opacity: 0.8, marginLeft: '8px' }}>(Inclusive of all taxes)</span>
                             </div>
                         </div>
 
@@ -282,9 +283,10 @@ const SubProductDetails = () => {
             {/* Mobile Sticky CTA */}
             <div className={`pdp-mobile-sticky ${product.price === 0 ? 'hide' : ''}`}>
                 <div className="mobile-sticky-inner">
-                    <div className="mobile-sticky-price">
+                    <div className="mobile-sticky-price" style={{ alignItems: 'baseline' }}>
                         <span className="sticky-currency">₹</span>
                         <span className="sticky-val">{product.price}</span>
+                        <span style={{ fontSize: '0.65em', fontWeight: 'normal', opacity: 0.9, marginLeft: '6px' }}>(Inclusive of all taxes)</span>
                     </div>
                     <button className="btn-sticky-add" onClick={handleAddToCart}>
                         {isAdded ? 'Added!' : 'Add to Cart'}
