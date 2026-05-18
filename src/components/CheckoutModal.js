@@ -75,7 +75,7 @@ const CheckoutModal = ({ isOpen, onClose }) => {
             `Please confirm my order. Thank you! 💙`;
 
         const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         clearCart();
         onClose();
     };

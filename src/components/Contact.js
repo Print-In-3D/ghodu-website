@@ -33,7 +33,7 @@ const Contact = () => {
         const text = `Hi Print-IN 3D, I'm ${formData.name}.\n\nI would like to submit a project inquiry.\n\nProject Details:\n${formData.message}`;
         const encodedText = encodeURIComponent(text);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
-        window.open(whatsappUrl, '_blank');
+        window.location.href = whatsappUrl;
 
         setIsSubmitting(false);
         setFormData({ name: '', message: '' });
