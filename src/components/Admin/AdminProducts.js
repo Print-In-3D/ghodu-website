@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { useData } from '../../context/DataContext';
-import { 
-    Plus, 
-    Edit, 
-    Trash2, 
-    X, 
-    Upload, 
+import {
+    Plus,
+    Edit,
+    Trash2,
+    X,
+    Upload,
     Search
 } from 'lucide-react';
 import '../CSS/Admin.css';
@@ -58,8 +58,8 @@ const AdminProducts = () => {
     const filteredProducts = useMemo(() => {
         return productsList.filter(p => {
             const matchesTopic = selectedTopicId === 'all' || p.categoryId === Number(selectedTopicId);
-            const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                                  p.desc.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                p.desc.toLowerCase().includes(searchTerm.toLowerCase());
             return matchesTopic && matchesSearch;
         });
     }, [productsList, selectedTopicId, searchTerm]);
@@ -92,11 +92,11 @@ const AdminProducts = () => {
         setCustomizationLabel(p.customizationLabel || '');
         setCustomizationPlaceholder(p.customizationPlaceholder || '');
         setFeatures(p.features || []);
-        
+
         // Map specs dictionary to key-value array
         const specsArr = Object.entries(p.specs || {}).map(([key, value]) => ({ key, value }));
         setSpecs(specsArr.length > 0 ? specsArr : [{ key: 'material', value: '' }]);
-        
+
         setImages(p.images || []);
         setError('');
         setModalOpen(true);
@@ -167,7 +167,7 @@ const AdminProducts = () => {
 
         setUploading(true);
         try {
-            const response = await fetch('http://localhost:8000/api/upload/', {
+            const response = await fetch('https://ayush1273.pythonanywhere.com/api/upload/', {
                 method: 'POST',
                 body: formData
             });
@@ -212,8 +212,8 @@ const AdminProducts = () => {
         });
 
         // Unique alphanumeric ID generators for new products (e.g. topicId-unique)
-        const productStrId = editingProduct 
-            ? editingProduct.id 
+        const productStrId = editingProduct
+            ? editingProduct.id
             : `${topic}-${Math.random().toString(36).substr(2, 5)}`;
 
         const payload = {
@@ -235,14 +235,14 @@ const AdminProducts = () => {
             let response;
             if (editingProduct && editingProduct.dbId) {
                 // Update
-                response = await fetch(`http://localhost:8000/api/products/${editingProduct.dbId}/`, {
+                response = await fetch(`https://ayush1273.pythonanywhere.com/api/products/${editingProduct.dbId}/`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
             } else {
                 // Create
-                response = await fetch('http://localhost:8000/api/products/', {
+                response = await fetch('https://ayush1273.pythonanywhere.com/api/products/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -272,10 +272,10 @@ const AdminProducts = () => {
 
         if (window.confirm(`Are you sure you want to delete product "${prodName}" (#${strId})?`)) {
             try {
-                const response = await fetch(`http://localhost:8000/api/products/${dbId}/`, {
+                const response = await fetch(`https://ayush1273.pythonanywhere.com/api/products/${dbId}/`, {
                     method: 'DELETE'
                 });
-                
+
                 if (response.ok) {
                     await refreshData();
                 } else {
@@ -294,11 +294,11 @@ const AdminProducts = () => {
             <div className="admin-panel-card" style={{ marginBottom: '24px', padding: '20px 24px' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', flex: 1, minWidth: '280px' }}>
-                        
+
                         {/* Search */}
                         <div style={{ position: 'relative', flex: 1, minWidth: '180px' }}>
                             <Search size={16} style={{ position: 'absolute', left: '12px', top: '12px', color: 'var(--admin-text-muted)' }} />
-                            <input 
+                            <input
                                 type="text"
                                 className="admin-form-control"
                                 style={{ paddingLeft: '36px' }}
@@ -309,7 +309,7 @@ const AdminProducts = () => {
                         </div>
 
                         {/* Category filter */}
-                        <select 
+                        <select
                             className="admin-form-control"
                             style={{ width: '200px' }}
                             value={selectedTopicId}
@@ -351,9 +351,9 @@ const AdminProducts = () => {
                             {filteredProducts.map((p) => (
                                 <tr key={p.id}>
                                     <td>
-                                        <img 
-                                            src={p.images && p.images[0] ? p.images[0] : 'https://via.placeholder.com/100x100?text=Product'} 
-                                            alt={p.name} 
+                                        <img
+                                            src={p.images && p.images[0] ? p.images[0] : 'https://via.placeholder.com/100x100?text=Product'}
+                                            alt={p.name}
                                             className="table-thumbnail"
                                             onError={(e) => {
                                                 e.target.onerror = null;
@@ -402,16 +402,16 @@ const AdminProducts = () => {
                                 <X size={20} />
                             </button>
                         </div>
-                        
+
                         <form onSubmit={handleSave}>
                             <div className="admin-modal-body" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                                 {error && <div className="login-error-box" style={{ gridColumn: 'span 2' }}>{error}</div>}
-                                
+
                                 {/* Left column */}
                                 <div>
                                     <div className="admin-form-group">
                                         <label>Category Category *</label>
-                                        <select 
+                                        <select
                                             className="admin-form-control"
                                             value={topic}
                                             onChange={(e) => setTopic(e.target.value)}
@@ -424,10 +424,10 @@ const AdminProducts = () => {
 
                                     <div className="admin-form-group">
                                         <label>Product Name *</label>
-                                        <input 
-                                            type="text" 
-                                            required 
-                                            className="admin-form-control" 
+                                        <input
+                                            type="text"
+                                            required
+                                            className="admin-form-control"
                                             placeholder="e.g. Low Poly Dino"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
@@ -436,11 +436,11 @@ const AdminProducts = () => {
 
                                     <div className="admin-form-group">
                                         <label>Price (₹) *</label>
-                                        <input 
-                                            type="number" 
-                                            required 
+                                        <input
+                                            type="number"
+                                            required
                                             min="0"
-                                            className="admin-form-control" 
+                                            className="admin-form-control"
                                             value={price}
                                             onChange={(e) => setPrice(e.target.value)}
                                         />
@@ -449,9 +449,9 @@ const AdminProducts = () => {
 
                                     <div className="admin-form-group">
                                         <label>Short Description *</label>
-                                        <textarea 
-                                            required 
-                                            className="admin-form-control" 
+                                        <textarea
+                                            required
+                                            className="admin-form-control"
                                             rows="2"
                                             placeholder="Short summary displayed on list pages..."
                                             value={desc}
@@ -461,21 +461,21 @@ const AdminProducts = () => {
 
                                     <div className="admin-form-group">
                                         <label>Craftsmanship / Detailed Story (Optional)</label>
-                                        <textarea 
-                                            className="admin-form-control" 
+                                        <textarea
+                                            className="admin-form-control"
                                             rows="4"
                                             placeholder="Complete backstory and parameters displayed on PDP details..."
                                             value={fullDetails}
                                             onChange={(e) => setFullDetails(e.target.value)}
                                         />
                                     </div>
-                                    
+
                                     {/* Customization section */}
                                     <div className="admin-panel-card" style={{ padding: '16px', background: '#F8FAFC', border: '1px solid var(--admin-border)' }}>
                                         <div className="admin-form-group" style={{ marginBottom: '12px' }}>
                                             <label className="admin-checkbox-label">
-                                                <input 
-                                                    type="checkbox" 
+                                                <input
+                                                    type="checkbox"
                                                     checked={customizable}
                                                     onChange={(e) => setCustomizable(e.target.checked)}
                                                 />
@@ -487,8 +487,8 @@ const AdminProducts = () => {
                                             <>
                                                 <div className="admin-form-group" style={{ marginBottom: '12px' }}>
                                                     <label>Personalization Label</label>
-                                                    <input 
-                                                        type="text" 
+                                                    <input
+                                                        type="text"
                                                         className="admin-form-control"
                                                         placeholder="e.g. Enter callsigned engraving name"
                                                         value={customizationLabel}
@@ -497,8 +497,8 @@ const AdminProducts = () => {
                                                 </div>
                                                 <div className="admin-form-group" style={{ marginBottom: 0 }}>
                                                     <label>Personalization Placeholder</label>
-                                                    <input 
-                                                        type="text" 
+                                                    <input
+                                                        type="text"
                                                         className="admin-form-control"
                                                         placeholder="e.g. GHOST-01 or J.K."
                                                         value={customizationPlaceholder}
@@ -520,21 +520,21 @@ const AdminProducts = () => {
                                                 + Add Spec
                                             </button>
                                         </label>
-                                        
+
                                         <div style={{ maxHeight: '180px', overflowY: 'auto', border: '1px solid var(--admin-border)', padding: '8px', borderRadius: '4px', background: '#F8FAFC' }}>
                                             {specs.map((s, idx) => (
                                                 <div key={idx} className="dynamic-list-row">
-                                                    <input 
-                                                        type="text" 
-                                                        className="admin-form-control" 
+                                                    <input
+                                                        type="text"
+                                                        className="admin-form-control"
                                                         style={{ height: '34px', fontSize: '0.8rem' }}
                                                         placeholder="e.g. material"
                                                         value={s.key}
                                                         onChange={(e) => handleSpecChange(idx, 'key', e.target.value)}
                                                     />
-                                                    <input 
-                                                        type="text" 
-                                                        className="admin-form-control" 
+                                                    <input
+                                                        type="text"
+                                                        className="admin-form-control"
                                                         style={{ height: '34px', fontSize: '0.8rem' }}
                                                         placeholder="e.g. Pro PLA"
                                                         value={s.value}
@@ -561,9 +561,9 @@ const AdminProducts = () => {
                                                     <button type="button" onClick={() => removeTag(idx)}><X size={10} /></button>
                                                 </span>
                                             ))}
-                                            <input 
-                                                type="text" 
-                                                className="tag-input-field" 
+                                            <input
+                                                type="text"
+                                                className="tag-input-field"
                                                 placeholder="Add feature and enter..."
                                                 value={tagInput}
                                                 onChange={(e) => setTagInput(e.target.value)}
@@ -575,7 +575,7 @@ const AdminProducts = () => {
                                     {/* Media Manager */}
                                     <div className="admin-form-group">
                                         <label>Product Images</label>
-                                        
+
                                         {/* Direct File Upload Drop Zone */}
                                         <div className="media-manager-box">
                                             <Upload size={24} style={{ color: 'var(--admin-text-muted)', marginBottom: '8px' }} />
@@ -583,10 +583,10 @@ const AdminProducts = () => {
                                                 {uploading ? 'Uploading image...' : 'Click to Upload Local Image'}
                                             </p>
                                             <p style={{ fontSize: '0.7rem', color: 'var(--admin-text-muted)', margin: '4px 0 0 0' }}>Supports JPEG, PNG up to 5MB</p>
-                                            <input 
-                                                type="file" 
+                                            <input
+                                                type="file"
                                                 accept="image/*"
-                                                className="media-upload-input" 
+                                                className="media-upload-input"
                                                 disabled={uploading}
                                                 onChange={handleFileUpload}
                                             />
@@ -594,8 +594,8 @@ const AdminProducts = () => {
 
                                         {/* External Image URL adder fallback */}
                                         <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 className="admin-form-control"
                                                 style={{ height: '36px', fontSize: '0.8rem' }}
                                                 placeholder="Or paste external image URL..."
@@ -611,8 +611,8 @@ const AdminProducts = () => {
                                         <div className="media-preview-grid">
                                             {images.map((img, idx) => (
                                                 <div key={idx} className="media-preview-card">
-                                                    <img 
-                                                        src={img} 
+                                                    <img
+                                                        src={img}
                                                         alt="preview"
                                                         onError={(e) => {
                                                             e.target.onerror = null;
@@ -622,7 +622,7 @@ const AdminProducts = () => {
                                                     <button type="button" onClick={() => removeImage(idx)} className="btn-media-delete">
                                                         <Trash2 size={10} />
                                                     </button>
-                                                    <span style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: '0.6rem', textAlign: 'center' }}>#{idx+1}</span>
+                                                    <span style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: '0.6rem', textAlign: 'center' }}>#{idx + 1}</span>
                                                 </div>
                                             ))}
                                         </div>

@@ -13,20 +13,20 @@ export const DataProvider = ({ children }) => {
 
     const refreshData = async () => {
         try {
-            const topicsRes = await fetch('http://localhost:8000/api/topics/');
-            const productsRes = await fetch('http://localhost:8000/api/products/');
-            
+            const topicsRes = await fetch('https://ayush1273.pythonanywhere.com/api/topics/');
+            const productsRes = await fetch('https://ayush1273.pythonanywhere.com/api/products/');
+
             if (topicsRes.ok && productsRes.ok) {
                 const topics = await topicsRes.json();
                 const products = await productsRes.json();
-                
+
                 // Sort topics by id to preserve design layout order
                 const sortedTopics = topics.sort((a, b) => a.id - b.id);
                 setTopicsData(sortedTopics);
 
                 // Group products by their category (topic ID)
                 const mappedProducts = {};
-                
+
                 // Initialize keys for all topics to avoid empty lists throwing undefined errors
                 sortedTopics.forEach(t => {
                     mappedProducts[t.id] = [];
@@ -37,7 +37,7 @@ export const DataProvider = ({ children }) => {
                     if (!mappedProducts[topicId]) {
                         mappedProducts[topicId] = [];
                     }
-                    
+
                     mappedProducts[topicId].push({
                         id: p.product_id, // "2-1" string format used by react components
                         dbId: p.id,       // keep actual database integer ID for edit/delete requests

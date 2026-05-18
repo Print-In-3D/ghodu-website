@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useData } from '../../context/DataContext';
-import { 
-    Plus, 
-    Edit, 
-    Trash2, 
-    X, 
+import {
+    Plus,
+    Edit,
+    Trash2,
+    X,
     HelpCircle,
     PencilRuler,
     Key,
@@ -28,7 +28,7 @@ const AdminTopics = () => {
     const { topicsData, isBackendOnline, refreshData } = useData();
     const [modalOpen, setModalOpen] = useState(false);
     const [editingTopic, setEditingTopic] = useState(null);
-    
+
     // Form fields
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
@@ -64,7 +64,7 @@ const AdminTopics = () => {
     const handleSave = async (e) => {
         e.preventDefault();
         setError('');
-        
+
         if (!isBackendOnline) {
             setError('Modifications are disabled in Offline Static Sandbox Mode.');
             return;
@@ -82,14 +82,14 @@ const AdminTopics = () => {
             let response;
             if (editingTopic) {
                 // Update
-                response = await fetch(`http://localhost:8000/api/topics/${editingTopic.id}/`, {
+                response = await fetch(`https://ayush1273.pythonanywhere.com/api/topics/${editingTopic.id}/`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
             } else {
                 // Create
-                response = await fetch('http://localhost:8000/api/topics/', {
+                response = await fetch('https://ayush1273.pythonanywhere.com/api/topics/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -119,10 +119,10 @@ const AdminTopics = () => {
 
         if (window.confirm(`Are you sure you want to delete category "${name}"? This will delete all products under it!`)) {
             try {
-                const response = await fetch(`http://localhost:8000/api/topics/${id}/`, {
+                const response = await fetch(`https://ayush1273.pythonanywhere.com/api/topics/${id}/`, {
                     method: 'DELETE'
                 });
-                
+
                 if (response.ok) {
                     await refreshData();
                 } else {
@@ -144,7 +144,7 @@ const AdminTopics = () => {
                         <Plus size={16} /> Add Category
                     </button>
                 </div>
-                
+
                 <div className="admin-table-container">
                     <table className="admin-table">
                         <thead>
@@ -200,17 +200,17 @@ const AdminTopics = () => {
                                 <X size={20} />
                             </button>
                         </div>
-                        
+
                         <form onSubmit={handleSave}>
                             <div className="admin-modal-body">
                                 {error && <div className="login-error-box">{error}</div>}
-                                
+
                                 <div className="admin-form-group">
                                     <label>Title *</label>
-                                    <input 
-                                        type="text" 
-                                        required 
-                                        className="admin-form-control" 
+                                    <input
+                                        type="text"
+                                        required
+                                        className="admin-form-control"
                                         placeholder="e.g. Signature Keychains"
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)}
@@ -219,10 +219,10 @@ const AdminTopics = () => {
 
                                 <div className="admin-form-group">
                                     <label>Category Badge *</label>
-                                    <input 
-                                        type="text" 
-                                        required 
-                                        className="admin-form-control" 
+                                    <input
+                                        type="text"
+                                        required
+                                        className="admin-form-control"
                                         placeholder="e.g. Personalized Luxe"
                                         value={category}
                                         onChange={(e) => setCategory(e.target.value)}
@@ -231,7 +231,7 @@ const AdminTopics = () => {
 
                                 <div className="admin-form-group">
                                     <label>Icon Identifier</label>
-                                    <select 
+                                    <select
                                         className="admin-form-control"
                                         value={icon}
                                         onChange={(e) => setIcon(e.target.value)}
@@ -247,9 +247,9 @@ const AdminTopics = () => {
 
                                 <div className="admin-form-group">
                                     <label>Short Description *</label>
-                                    <textarea 
-                                        required 
-                                        className="admin-form-control" 
+                                    <textarea
+                                        required
+                                        className="admin-form-control"
                                         rows="3"
                                         placeholder="Short summary displayed on homepage cards..."
                                         value={desc}
@@ -259,8 +259,8 @@ const AdminTopics = () => {
 
                                 <div className="admin-form-group">
                                     <label>Detailed Overview (Optional)</label>
-                                    <textarea 
-                                        className="admin-form-control" 
+                                    <textarea
+                                        className="admin-form-control"
                                         rows="4"
                                         placeholder="Detailed description shown in list header..."
                                         value={details}

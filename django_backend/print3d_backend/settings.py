@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-tw3ascn1t&w38ij4g=7xtki9f$xx+hz(mdj6gry^fbz7y*7bft
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ayush1273.pythonanywhere.com', 'www.printin3d.in', 'printin3d.in', 'localhost', '127.0.0.1']
 
 
 # Application definition

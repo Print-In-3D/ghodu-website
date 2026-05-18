@@ -61,7 +61,7 @@ class ImageUploadView(APIView):
         
         # Generate absolute or relative URL
         # For full hosting independence, a relative media URL `/media/images/...` is excellent,
-        # but returning absolute url like `http://localhost:8000/media/images/...` is great for immediate display.
+        # but returning absolute url like `https://ayush1273.pythonanywhere.com/media/images/...` is great for immediate display.
         # Let's return the absolute URL. We can construct it using the request object.
         request_url = request.build_absolute_uri('/')
         # Remove trailing slash
