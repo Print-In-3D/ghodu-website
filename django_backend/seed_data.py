@@ -136,7 +136,7 @@ sub_products = {
             "id": '2-8', "name": "Midnight Skeleton", "price": 160,
             "images": ["/images/products/keychains/Skeleton/i1.jpg", "/images/products/keychains/Skeleton/i2.jpg", "/images/products/keychains/Skeleton/i3.jpg"],
             "desc": "A fully articulated miniature skeleton with incredible bone-structure detail.",
-            "fullDetails": "Perfect for the edgy collector. This skeleton features moving limbs and a detailed skull, all crafted with industrial precision.",
+            "fullDetails": "Perfect for the edgy collector. This skeleton features moving limbs and a detailed skull, all crafted with Exacting craftsmanship.",
             "specs": { "material": "Bone-White PLA", "joints": "Multi-point", "style": "Anatomical" },
             "features": ["Fully Posable", "Detailed", "Articulated", "Collectors Item"],
             "customizable": False

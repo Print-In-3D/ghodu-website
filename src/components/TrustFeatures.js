@@ -6,8 +6,8 @@ import './CSS/TrustFeatures.css';
 const features = [
     {
         icon: Layers,
-        title: 'Industrial Precision',
-        desc: 'We use high-resolution industrial 3D printers to ensure every layer is perfect, from prototypes to décor.'
+        title: 'Exacting craftsmanship',
+        desc: 'We use high-resolution 3D printers to ensure every layer is perfect, from prototypes to décor.'
     },
     {
         icon: Zap,

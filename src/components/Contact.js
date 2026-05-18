@@ -34,7 +34,7 @@ const Contact = () => {
         const encodedText = encodeURIComponent(text);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
         window.open(whatsappUrl, '_blank');
-        
+
         setIsSubmitting(false);
         setFormData({ name: '', message: '' });
     };
@@ -60,7 +60,7 @@ const Contact = () => {
                             <div className="benefit-card-mini">
                                 <div className="benefit-icon-p"><Zap size={18} /></div>
                                 <div className="benefit-text-p">
-                                    <h4>Industrial Precision</h4>
+                                    <h4>Exacting craftsmanship</h4>
                                     <p>Professional grade FDM manufacturing.</p>
                                 </div>
                             </div>
