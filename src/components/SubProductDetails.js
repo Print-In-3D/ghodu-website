@@ -113,7 +113,6 @@ const SubProductDetails = () => {
                             ) : (
                                 <div className="pdp-image-placeholder">🎁</div>
                             )}
-                            <div className="pdp-zoom-hint">Hover to explore details</div>
                         </div>
                         <div className="pdp-thumbnails">
                             {product.images && product.images.map((img, idx) => (
@@ -124,7 +123,7 @@ const SubProductDetails = () => {
                                 >
                                     <img 
                                         src={img} 
-                                        alt={`View ${idx + 1}`} 
+                                        alt={`View ${idx + 1}`}
                                         onError={(e) => {
                                             e.target.onerror = null;
                                             e.target.src = 'https://via.placeholder.com/100x100?text=3D';
