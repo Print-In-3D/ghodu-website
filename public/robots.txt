@@ -6,4 +6,4 @@ Disallow: /cart
 Disallow: /checkout
 
 # Sitemap location
-Sitemap: https://printin3d.in/sitemap.xml
+Sitemap: https://www.printin3d.in/sitemap.xml

@@ -69,12 +69,12 @@ const ContactPage = () => {
                 <meta property="og:title" content="Contact Our 3D Printing Studio | Print-IN 3D" />
                 <meta property="og:description" content="Get in touch with Print-IN 3D. Submit a custom 3D printing project inquiry, request industrial prototyping quotes, or ask about our custom gift products." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://printin3d.in/contact" />
-                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta property="og:url" content="https://www.printin3d.in/contact" />
+                <meta property="og:image" content="https://www.printin3d.in/favicon.webp" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Contact Our 3D Printing Studio | Print-IN 3D" />
                 <meta name="twitter:description" content="Get in touch with Print-IN 3D. Submit a custom 3D printing project inquiry, request industrial prototyping quotes, or ask about our custom gift products." />
-                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:image" content="https://www.printin3d.in/favicon.webp" />
             </Helmet>
             {/* ── CINEMATIC HERO ── */}
             <header className="contact-hero-cinematic reveal-hidden">

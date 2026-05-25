@@ -61,12 +61,11 @@ const SearchPage = () => {
                 <meta property="og:title" content={searchQuery ? `Search results for "${searchQuery}" | Print-IN 3D` : "Search Products | Print-IN 3D"} />
                 <meta property="og:description" content="Search for custom 3D printed keychains, home decor, desk gear, cinematic frames, and collector models from Print-IN 3D." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://printin3d.in/search" />
-                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta property="og:image" content="https://www.printin3d.in/favicon.webp" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={searchQuery ? `Search results for "${searchQuery}" | Print-IN 3D` : "Search Products | Print-IN 3D"} />
                 <meta name="twitter:description" content="Search for custom 3D printed keychains, home decor, desk gear, cinematic frames, and collector models from Print-IN 3D." />
-                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:image" content="https://www.printin3d.in/favicon.webp" />
             </Helmet>
             <div className="container" ref={revealRef}>
                 {/* Back Navigation */}

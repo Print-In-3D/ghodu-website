@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 import { topicsData, subProductsMap } from '../src/data/productsData.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const BASE_URL = 'https://printin3d.in';
+const BASE_URL = 'https://www.printin3d.in';
 const TODAY    = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
 /* ── Slug helper ─────────────────────────────────────── */

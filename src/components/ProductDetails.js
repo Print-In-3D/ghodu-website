@@ -76,12 +76,12 @@ const ProductDetails = () => {
                 <meta property="og:title" content={`${topic.title} | Premium 3D Printed Collection`} />
                 <meta property="og:description" content={`Browse our premium selection of custom 3D printed ${topic.title.toLowerCase()}. Handcrafted with high-quality materials and fine finishes. Order online with fast pan-India shipping!`} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`https://printin3d.in/product/${topicId}`} />
-                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta property="og:url" content={`https://www.printin3d.in/product/${topicId}`} />
+                <meta property="og:image" content="https://www.printin3d.in/favicon.webp" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={`${topic.title} | Premium 3D Printed Collection`} />
                 <meta name="twitter:description" content={`Browse our premium selection of custom 3D printed ${topic.title.toLowerCase()}. Handcrafted with high-quality materials and fine finishes. Order online with fast pan-India shipping!`} />
-                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:image" content="https://www.printin3d.in/favicon.webp" />
             </Helmet>
             <div className="container" ref={revealRef}>
                 {/* Back Link */}

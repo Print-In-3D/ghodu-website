@@ -82,12 +82,12 @@ const SubProductDetails = () => {
                 <meta property="og:title" content={`${product.name} | Premium 3D Printed ${topic.title}`} />
                 <meta property="og:description" content={`Order the ${product.name} online from Print-IN 3D. ${product.desc} Handcrafted in India with high layer precision and durable materials.`} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`https://printin3d.in/product/${topicId}/${productId}`} />
-                <meta property="og:image" content={product.images && product.images[0] ? product.images[0] : "https://printin3d.in/favicon.webp"} />
+                <meta property="og:url" content={`https://www.printin3d.in/product/${topicId}/${productId}`} />
+                <meta property="og:image" content={product.images && product.images[0] ? product.images[0] : "https://www.printin3d.in/favicon.webp"} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={`${product.name} | Premium 3D Printed ${topic.title}`} />
                 <meta name="twitter:description" content={`Order the ${product.name} online from Print-IN 3D. ${product.desc} Handcrafted in India with high layer precision and durable materials.`} />
-                <meta name="twitter:image" content={product.images && product.images[0] ? product.images[0] : "https://printin3d.in/favicon.webp"} />
+                <meta name="twitter:image" content={product.images && product.images[0] ? product.images[0] : "https://www.printin3d.in/favicon.webp"} />
             </Helmet>
             <div className="container" ref={revealRef}>
                 {/* Back Navigation */}

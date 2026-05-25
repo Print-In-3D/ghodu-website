@@ -28,12 +28,12 @@ const Home = () => {
                 <meta property="og:title" content="Print-IN 3D | Premium 3D Printing Service & Custom Gifts India" />
                 <meta property="og:description" content="Print-IN 3D is India's leading online 3D printing service. We offer high-quality custom 3D printing, rapid industrial prototyping, personalized gifts, custom keychains, home decor, and bespoke design. Quick shipping pan-India!" />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://printin3d.in/" />
-                <meta property="og:image" content="https://printin3d.in/favicon.webp" />
+                <meta property="og:url" content="https://www.printin3d.in/" />
+                <meta property="og:image" content="https://www.printin3d.in/favicon.webp" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Print-IN 3D | Premium 3D Printing Service & Custom Gifts India" />
                 <meta name="twitter:description" content="Print-IN 3D is India's leading online 3D printing service. We offer high-quality custom 3D printing, rapid industrial prototyping, personalized gifts, custom keychains, home decor, and bespoke design. Quick shipping pan-India!" />
-                <meta name="twitter:image" content="https://printin3d.in/favicon.webp" />
+                <meta name="twitter:image" content="https://www.printin3d.in/favicon.webp" />
             </Helmet>
             <Hero />
             <TrustFeatures />
